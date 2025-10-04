@@ -1,127 +1,127 @@
 import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
+import pinkFlower from "@/assets/pink-flower.png";
 
 const PhotoPage = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cream to-background p-4">
+    <div className="min-h-screen flex items-center justify-center bg-kawaii-pink p-4 overflow-hidden relative">
+      {/* Flower pattern background */}
+      <div className="absolute inset-0 opacity-20">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute"
+            style={{
+              left: `${(i % 5) * 20 + 10}%`,
+              top: `${Math.floor(i / 5) * 25 + 10}%`,
+            }}
+          >
+            <img src={pinkFlower} alt="" className="w-8 h-8" />
+          </div>
+        ))}
+      </div>
+
+      {/* Main content card */}
       <motion.div
-        className="max-w-4xl w-full"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        className="max-w-2xl w-full relative z-10"
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.6 }}
       >
-        <div className="text-center mb-8">
+        <div className="bg-gradient-to-t from-kawaii-blue to-white rounded-3xl p-8 md:p-12 shadow-2xl border-8 border-kawaii-pink-medium/30 relative">
+          {/* Title */}
           <motion.h2
-            className="font-playfair text-4xl md:text-5xl font-bold text-primary mb-4"
+            className="font-hand text-2xl md:text-3xl text-center text-foreground mb-8 tracking-wider"
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            Our Journey Together
+            FOREVER TOGETHER
           </motion.h2>
+
+          {/* Photo frame */}
           <motion.div
-            className="flex items-center justify-center gap-3"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.5, type: "spring" }}
+            className="relative mx-auto w-64 h-64 md:w-80 md:h-80"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.5 }}
           >
-            <Heart className="w-5 h-5 text-primary fill-primary" />
-            <p className="font-garamond text-xl text-foreground/70">
-              Five beautiful years
-            </p>
-            <Heart className="w-5 h-5 text-primary fill-primary" />
-          </motion.div>
-        </div>
+            {/* Circular photo frame */}
+            <div className="w-full h-full rounded-full border-8 border-white shadow-2xl overflow-hidden bg-gradient-to-br from-kawaii-blue-light to-white flex items-center justify-center">
+              <p className="font-cute text-kawaii-pink-dark text-center px-8">
+                Your beautiful photo here 💕
+              </p>
+            </div>
 
-        {/* Photo frame */}
-        <motion.div
-          className="relative"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-        >
-          {/* Decorative corners */}
-          <div className="absolute -top-4 -left-4 w-16 h-16 border-t-4 border-l-4 border-gold rounded-tl-3xl" />
-          <div className="absolute -top-4 -right-4 w-16 h-16 border-t-4 border-r-4 border-gold rounded-tr-3xl" />
-          <div className="absolute -bottom-4 -left-4 w-16 h-16 border-b-4 border-l-4 border-gold rounded-bl-3xl" />
-          <div className="absolute -bottom-4 -right-4 w-16 h-16 border-b-4 border-r-4 border-gold rounded-br-3xl" />
+            {/* Confetti and streamers */}
+            {[...Array(15)].map((_, i) => {
+              const angle = (i * 360) / 15;
+              const radius = 140;
+              const x = Math.cos((angle * Math.PI) / 180) * radius;
+              const y = Math.sin((angle * Math.PI) / 180) * radius;
 
-          {/* Photo placeholder with upload instruction */}
-          <div className="bg-background border-8 border-primary rounded-2xl p-4 shadow-2xl">
-            <div className="aspect-[4/3] bg-gradient-to-br from-romantic-red-light to-cream rounded-lg flex items-center justify-center relative overflow-hidden">
-              {/* Placeholder content - user can replace this with their photo */}
-              <div className="text-center p-8">
-                <Heart className="w-20 h-20 md:w-32 md:h-32 text-primary/30 fill-primary/30 mx-auto mb-4" />
-                <p className="font-garamond text-lg md:text-xl text-foreground/60 italic">
-                  Your beautiful photo here
-                </p>
-                <p className="font-garamond text-sm text-foreground/40 mt-2">
-                  (Replace this placeholder with your photo)
-                </p>
-              </div>
-
-              {/* Decorative floating hearts */}
-              {[...Array(8)].map((_, i) => (
+              return (
                 <motion.div
                   key={i}
                   className="absolute"
                   style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
+                    left: `calc(50% + ${x}px)`,
+                    top: `calc(50% + ${y}px)`,
                   }}
                   animate={{
-                    y: [-10, -20, -10],
-                    opacity: [0.1, 0.3, 0.1],
+                    rotate: [0, 360],
+                    scale: [1, 1.2, 1],
                   }}
                   transition={{
-                    duration: 3 + Math.random() * 2,
+                    duration: 3,
+                    delay: i * 0.1,
                     repeat: Infinity,
-                    delay: i * 0.3,
                   }}
                 >
-                  <Heart className="w-6 h-6 text-primary/20 fill-primary/20" />
+                  {i % 3 === 0 ? (
+                    <span className="text-2xl">🎊</span>
+                  ) : i % 3 === 1 ? (
+                    <span className="text-2xl">✨</span>
+                  ) : (
+                    <span className="text-2xl">💝</span>
+                  )}
                 </motion.div>
-              ))}
-            </div>
-          </div>
+              );
+            })}
+          </motion.div>
 
-          {/* Caption */}
+          {/* Pinned note at bottom */}
           <motion.div
-            className="mt-6 text-center"
+            className="mt-8 relative"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1 }}
+            transition={{ delay: 0.8 }}
           >
-            <p className="font-script text-2xl md:text-3xl text-primary">
-              Forever & Always
-            </p>
+            <div className="absolute -top-2 left-8 w-4 h-4 rounded-full bg-kawaii-coral border-2 border-white shadow-lg z-10" />
+            <div className="bg-kawaii-beige rounded-2xl p-6 shadow-lg transform rotate-1 border-4 border-kawaii-pink-medium/20">
+              <p className="font-script text-lg md:text-xl text-foreground/80 text-center">
+                I am so grateful to be able to call you mine. You must be the luckiest man alive 🐻
+              </p>
+              <div className="flex justify-end mt-2">
+                <img src={pinkFlower} alt="" className="w-6 h-6" />
+              </div>
+            </div>
           </motion.div>
-        </motion.div>
 
-        {/* Decorative elements */}
-        <motion.div
-          className="flex justify-center gap-8 mt-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-        >
-          {[...Array(5)].map((_, i) => (
-            <motion.div
-              key={i}
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.5, 1, 0.5],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                delay: i * 0.2,
-              }}
-            >
-              <div className="w-3 h-3 rounded-full bg-gradient-to-r from-primary to-gold" />
-            </motion.div>
-          ))}
-        </motion.div>
+          <motion.img
+            src={pinkFlower}
+            alt=""
+            className="absolute top-4 left-4 w-10 h-10"
+            animate={{ rotate: [0, 10, -10, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          />
+          <motion.img
+            src={pinkFlower}
+            alt=""
+            className="absolute top-4 right-4 w-10 h-10"
+            animate={{ rotate: [0, -10, 10, 0] }}
+            transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
+          />
+        </div>
       </motion.div>
     </div>
   );

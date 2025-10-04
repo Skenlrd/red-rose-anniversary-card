@@ -1,140 +1,156 @@
 import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
-import bearsHugging from "@/assets/bears-hugging.png";
+import { Heart, Sparkles } from "lucide-react";
+import kawaiBears from "@/assets/kawaii-bears.png";
+import pinkFlower from "@/assets/pink-flower.png";
 
 const CoverPage = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4 overflow-hidden relative">
-      {/* Decorative heart border */}
-      <div className="absolute inset-0 pointer-events-none">
+    <div className="min-h-screen flex items-center justify-center bg-kawaii-pink p-4 overflow-hidden relative">
+      {/* Flower pattern background */}
+      <div className="absolute inset-0 opacity-20">
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute"
             style={{
-              left: `${(i % 10) * 10}%`,
-              top: i < 10 ? "0%" : "auto",
-              bottom: i >= 10 ? "0%" : "auto",
+              left: `${(i % 5) * 20 + 10}%`,
+              top: `${Math.floor(i / 5) * 25 + 10}%`,
             }}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 0.3 }}
-            transition={{ delay: i * 0.05, duration: 0.5 }}
+            initial={{ scale: 0, rotate: 0 }}
+            animate={{ scale: 1, rotate: 360 }}
+            transition={{ delay: i * 0.05, duration: 20, repeat: Infinity, ease: "linear" }}
           >
-            <Heart className="w-6 h-6 text-primary fill-primary" />
+            <img src={pinkFlower} alt="" className="w-8 h-8" />
           </motion.div>
         ))}
       </div>
 
-      {/* Decorative border frame */}
+      {/* Main content card */}
       <motion.div
-        className="max-w-4xl w-full relative"
+        className="max-w-2xl w-full relative z-10"
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="border-8 border-primary rounded-3xl p-8 md:p-16 bg-background shadow-2xl relative">
-          {/* Corner decorations */}
-          {[...Array(4)].map((_, i) => (
-            <div
-              key={i}
-              className={`absolute w-12 h-12 border-4 border-gold ${
-                i === 0
-                  ? "top-0 left-0 border-r-0 border-b-0 rounded-tl-2xl"
-                  : i === 1
-                  ? "top-0 right-0 border-l-0 border-b-0 rounded-tr-2xl"
-                  : i === 2
-                  ? "bottom-0 left-0 border-r-0 border-t-0 rounded-bl-2xl"
-                  : "bottom-0 right-0 border-l-0 border-t-0 rounded-br-2xl"
-              }`}
-            />
-          ))}
+        <div className="bg-gradient-to-t from-kawaii-blue to-white rounded-3xl p-8 md:p-12 shadow-2xl border-8 border-kawaii-pink-medium/30 relative">
+          {/* Heart borders on sides */}
+          <div className="absolute left-2 top-1/4 bottom-1/4 flex flex-col justify-around">
+            {[...Array(5)].map((_, i) => (
+              <motion.div
+                key={`left-${i}`}
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, delay: i * 0.2, repeat: Infinity }}
+              >
+                <Heart className="w-5 h-5 text-kawaii-pink-medium fill-kawaii-pink-medium" />
+              </motion.div>
+            ))}
+          </div>
+          <div className="absolute right-2 top-1/4 bottom-1/4 flex flex-col justify-around">
+            {[...Array(5)].map((_, i) => (
+              <motion.div
+                key={`right-${i}`}
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, delay: i * 0.2, repeat: Infinity }}
+              >
+                <Heart className="w-5 h-5 text-kawaii-pink-medium fill-kawaii-pink-medium" />
+              </motion.div>
+            ))}
+          </div>
 
           {/* Content */}
-          <div className="text-center space-y-8">
-            {/* Main heading */}
+          <div className="text-center space-y-6">
+            {/* Title bubble */}
             <motion.div
-              initial={{ y: 20, opacity: 0 }}
+              className="bg-kawaii-beige rounded-full px-8 py-6 inline-block shadow-lg"
+              initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
+              transition={{ delay: 0.3 }}
             >
-              <h1 className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-primary mb-4">
+              <h1 className="font-kawaii text-3xl md:text-5xl text-foreground">
                 Happy 5th Anniversary!
               </h1>
-              <div className="flex items-center justify-center gap-4">
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent via-gold to-transparent" />
-                <Heart className="w-6 h-6 text-gold fill-gold animate-heart-beat" />
-                <div className="h-1 w-16 bg-gradient-to-r from-transparent via-gold to-transparent" />
-              </div>
-            </motion.div>
-
-            {/* Bears illustration */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="flex justify-center py-8"
-            >
-              <div className="relative">
-                <motion.img
-                  src={bearsHugging}
-                  alt="Two bears hugging"
-                  className="w-64 h-64 md:w-80 md:h-80 object-contain"
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                />
-                {/* Floating hearts around the image */}
-                {[...Array(6)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute"
-                    style={{
-                      left: `${20 + (i % 3) * 30}%`,
-                      top: `${20 + Math.floor(i / 3) * 50}%`,
-                    }}
-                    animate={{
-                      y: [-5, -15, -5],
-                      opacity: [0.4, 0.8, 0.4],
-                    }}
-                    transition={{
-                      duration: 2 + i * 0.3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: i * 0.2,
-                    }}
-                  >
-                    <Heart className="w-4 h-4 text-primary fill-primary" />
-                  </motion.div>
-                ))}
-              </div>
             </motion.div>
 
             {/* Subtitle */}
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.6 }}
+            <motion.p
+              className="font-script text-3xl md:text-4xl text-kawaii-pink-dark"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
             >
-              <p className="font-script text-3xl md:text-4xl text-foreground/80">
-                Five years of love & laughter
-              </p>
+              My Love
+            </motion.p>
+
+            {/* Sparkles */}
+            <div className="flex justify-center gap-4">
+              {[...Array(3)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  animate={{ rotate: [0, 180, 360], scale: [1, 1.3, 1] }}
+                  transition={{ duration: 3, delay: i * 0.3, repeat: Infinity }}
+                >
+                  <Sparkles className="w-6 h-6 text-kawaii-yellow fill-kawaii-yellow" />
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Bears illustration */}
+            <motion.div
+              className="flex justify-start items-end gap-4 px-8"
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.7 }}
+            >
+              <img
+                src={kawaiBears}
+                alt="Two cute bears hugging"
+                className="w-32 h-32 md:w-40 md:h-40 object-contain"
+              />
+              
+              {/* Floating hearts */}
+              {[...Array(4)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute"
+                  style={{
+                    left: `${30 + i * 15}%`,
+                    top: `${50 + (i % 2) * 10}%`,
+                  }}
+                  animate={{
+                    y: [-10, -20, -10],
+                    opacity: [0.5, 1, 0.5],
+                  }}
+                  transition={{
+                    duration: 2,
+                    delay: i * 0.3,
+                    repeat: Infinity,
+                  }}
+                >
+                  <Heart className="w-4 h-4 text-kawaii-pink-medium fill-kawaii-pink-medium" />
+                </motion.div>
+              ))}
             </motion.div>
 
-            {/* Decorative element */}
+            {/* Flowers at bottom */}
             <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 1.2, duration: 0.6 }}
-              className="flex justify-center items-center gap-2"
+              className="flex justify-center gap-6 pt-4"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.9 }}
             >
-              <div className="w-2 h-2 rounded-full bg-gold" />
-              <div className="w-3 h-3 rounded-full bg-primary" />
-              <div className="w-2 h-2 rounded-full bg-gold" />
+              {[...Array(5)].map((_, i) => (
+                <motion.img
+                  key={i}
+                  src={pinkFlower}
+                  alt="Pink flower"
+                  className="w-8 h-8"
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 3, delay: i * 0.2, repeat: Infinity }}
+                />
+              ))}
             </motion.div>
           </div>
         </div>
-
-        {/* Shadow decoration */}
-        <div className="absolute -inset-4 bg-gradient-to-b from-primary/5 to-transparent rounded-3xl -z-10 blur-xl" />
       </motion.div>
     </div>
   );

@@ -1,99 +1,167 @@
 import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
+import { useState } from "react";
 
 interface EnvelopeProps {
   onOpen: () => void;
 }
 
 const Envelope = ({ onOpen }: EnvelopeProps) => {
+  const [isOpening, setIsOpening] = useState(false);
+
+  const handleClick = () => {
+    setIsOpening(true);
+    setTimeout(() => {
+      onOpen();
+    }, 1200);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-romantic-red-light to-cream p-4">
-      <div className="text-center">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-kawaii-pink via-kawaii-blue-light to-kawaii-pink p-4 overflow-hidden">
+      <div className="text-center relative">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <h1 className="font-script text-6xl md:text-8xl text-primary mb-4">
+          <h1 className="font-kawaii text-5xl md:text-7xl text-kawaii-pink-dark mb-4">
             For You
           </h1>
-          <p className="font-garamond text-xl md:text-2xl text-foreground/80">
-            A special message awaits...
+          <p className="font-hand text-xl md:text-2xl text-foreground/80">
+            A special surprise awaits...
           </p>
         </motion.div>
 
         <motion.div
           className="relative cursor-pointer"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={onOpen}
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1, scale: isOpening ? 0.8 : 1 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          onClick={handleClick}
         >
-          {/* Envelope */}
-          <motion.div
-            className="relative w-64 h-40 md:w-80 md:h-48 mx-auto"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-          >
-            {/* Envelope body */}
-            <div className="absolute inset-0 bg-background border-4 border-primary rounded-lg shadow-2xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-background to-secondary" />
+          {/* Envelope body */}
+          <div className="relative w-80 h-52 md:w-96 md:h-60 mx-auto">
+            <div className="absolute inset-0 bg-gradient-to-br from-white to-kawaii-pink rounded-2xl shadow-2xl border-4 border-kawaii-pink-medium/30">
+              {/* Decorative lines on envelope */}
+              <div className="absolute top-4 left-6 right-6 space-y-2">
+                {[...Array(3)].map((_, i) => (
+                  <div key={i} className="h-px bg-kawaii-pink-medium/20" />
+                ))}
+              </div>
             </div>
 
             {/* Envelope flap */}
             <motion.div
-              className="absolute -top-1 left-0 right-0 h-24 md:h-28 origin-top"
+              className="absolute -top-1 left-0 right-0 h-32 origin-top z-10"
               style={{
                 clipPath: "polygon(0 0, 50% 100%, 100% 0)",
               }}
-              animate={{ rotateX: [0, -10, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              animate={
+                isOpening
+                  ? { rotateX: -120, opacity: 0 }
+                  : { rotateX: 0, opacity: 1 }
+              }
+              transition={{ duration: 0.6, ease: "easeInOut" }}
             >
-              <div className="w-full h-full bg-primary border-4 border-primary" />
+              <div className="w-full h-full bg-gradient-to-b from-kawaii-pink to-white border-4 border-kawaii-pink-medium/30" />
             </motion.div>
 
-            {/* Decorative hearts */}
+            {/* String decoration */}
             <motion.div
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
+              animate={
+                isOpening
+                  ? { scale: 0, rotate: 180, opacity: 0 }
+                  : { scale: 1, rotate: 0, opacity: 1 }
+              }
+              transition={{ duration: 0.5 }}
             >
-              <Heart className="w-12 h-12 md:w-16 md:h-16 text-primary fill-primary" />
-            </motion.div>
-          </motion.div>
+              {/* String lines */}
+              <svg width="200" height="100" className="absolute -top-8 -left-24">
+                <line
+                  x1="100"
+                  y1="50"
+                  x2="20"
+                  y2="20"
+                  stroke="hsl(var(--kawaii-coral))"
+                  strokeWidth="2"
+                />
+                <line
+                  x1="100"
+                  y1="50"
+                  x2="180"
+                  y2="20"
+                  stroke="hsl(var(--kawaii-coral))"
+                  strokeWidth="2"
+                />
+                <line
+                  x1="100"
+                  y1="50"
+                  x2="100"
+                  y2="0"
+                  stroke="hsl(var(--kawaii-coral))"
+                  strokeWidth="2"
+                />
+              </svg>
 
-          <motion.p
-            className="mt-8 font-garamond text-lg md:text-xl text-foreground/70"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            Click to open
-          </motion.p>
+              {/* Button seal */}
+              <motion.div
+                className="w-16 h-16 rounded-full bg-gradient-to-br from-kawaii-coral to-kawaii-pink-medium shadow-lg flex items-center justify-center border-4 border-white"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                animate={{ rotate: [0, -5, 5, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <div className="w-8 h-8 rounded-full border-4 border-white flex items-center justify-center">
+                  <div className="grid grid-cols-2 gap-1">
+                    {[...Array(4)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="w-2 h-2 rounded-full bg-white"
+                      />
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Click instruction */}
+          {!isOpening && (
+            <motion.p
+              className="mt-8 font-cute text-lg md:text-xl text-kawaii-pink-dark"
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              Click the button to open! ✨
+            </motion.p>
+          )}
         </motion.div>
 
         {/* Floating hearts decoration */}
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: window.innerHeight + 50,
-            }}
-            animate={{
-              y: -50,
-              x: Math.random() * window.innerWidth,
-            }}
-            transition={{
-              duration: 8 + Math.random() * 4,
-              repeat: Infinity,
-              delay: i * 0.8,
-            }}
-          >
-            <Heart className="w-6 h-6 text-primary/30 fill-primary/30" />
-          </motion.div>
-        ))}
+        {!isOpening &&
+          [...Array(8)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute text-2xl"
+              initial={{
+                x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
+                y: typeof window !== 'undefined' ? window.innerHeight + 50 : 1000,
+              }}
+              animate={{
+                y: -100,
+                x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
+              }}
+              transition={{
+                duration: 6 + Math.random() * 4,
+                repeat: Infinity,
+                delay: i * 0.8,
+                ease: "linear",
+              }}
+            >
+              {i % 2 === 0 ? "💖" : "✨"}
+            </motion.div>
+          ))}
       </div>
     </div>
   );

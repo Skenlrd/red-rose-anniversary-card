@@ -14,9 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        'playfair': ['Playfair Display', 'serif'],
-        'garamond': ['Cormorant Garamond', 'serif'],
-        'script': ['Great Vibes', 'cursive'],
+        'kawaii': ['Chewy', 'cursive'],
+        'hand': ['Indie Flower', 'cursive'],
+        'cute': ['Patrick Hand', 'cursive'],
+        'script': ['Caveat', 'cursive'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -52,16 +53,16 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        romantic: {
-          red: "hsl(var(--romantic-red))",
-          "red-dark": "hsl(var(--romantic-red-dark))",
-          "red-light": "hsl(var(--romantic-red-light))",
+        kawaii: {
+          pink: "hsl(var(--kawaii-pink))",
+          "pink-medium": "hsl(var(--kawaii-pink-medium))",
+          "pink-dark": "hsl(var(--kawaii-pink-dark))",
+          blue: "hsl(var(--kawaii-blue))",
+          "blue-light": "hsl(var(--kawaii-blue-light))",
+          beige: "hsl(var(--kawaii-beige))",
+          coral: "hsl(var(--kawaii-coral))",
+          yellow: "hsl(var(--kawaii-yellow))",
         },
-        gold: {
-          DEFAULT: "hsl(var(--gold))",
-          dark: "hsl(var(--gold-dark))",
-        },
-        cream: "hsl(var(--cream))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -97,12 +98,15 @@ export default {
         },
         "float": {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-20px)" },
+          "50%": { transform: "translateY(-15px)" },
         },
-        "heart-beat": {
-          "0%, 100%": { transform: "scale(1)" },
-          "25%": { transform: "scale(1.1)" },
-          "50%": { transform: "scale(1)" },
+        "bounce-soft": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "wiggle": {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
         },
         "fade-in": {
           from: { opacity: "0", transform: "translateY(10px)" },
@@ -113,7 +117,8 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "float": "float 3s ease-in-out infinite",
-        "heart-beat": "heart-beat 1.5s ease-in-out infinite",
+        "bounce-soft": "bounce-soft 2s ease-in-out infinite",
+        "wiggle": "wiggle 1s ease-in-out infinite",
         "fade-in": "fade-in 0.6s ease-out",
       },
     },

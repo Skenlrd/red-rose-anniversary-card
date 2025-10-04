@@ -8,42 +8,44 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
+    --background: 340 100% 97%;
+    --foreground: 0 0% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card-foreground: 0 0% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover-foreground: 0 0% 20%;
 
-    --primary: 0 72% 51%;
+    --primary: 350 75% 65%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 98%;
-    --secondary-foreground: 0 72% 51%;
+    --secondary: 200 60% 85%;
+    --secondary-foreground: 0 0% 20%;
 
-    --muted: 0 0% 96%;
+    --muted: 340 30% 95%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 45 100% 65%;
-    --accent-foreground: 0 0% 10%;
+    --accent: 200 70% 75%;
+    --accent-foreground: 0 0% 20%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 72% 90%;
-    --input: 0 72% 90%;
-    --ring: 0 72% 51%;
+    --border: 340 30% 90%;
+    --input: 340 30% 90%;
+    --ring: 350 75% 65%;
 
-    --radius: 1rem;
+    --radius: 1.5rem;
     
-    --romantic-red: 0 72% 51%;
-    --romantic-red-dark: 0 72% 41%;
-    --romantic-red-light: 0 72% 95%;
-    --gold: 45 100% 65%;
-    --gold-dark: 45 100% 55%;
-    --cream: 40 40% 97%;
+    --kawaii-pink: 340 100% 95%;
+    --kawaii-pink-medium: 350 75% 65%;
+    --kawaii-pink-dark: 350 70% 55%;
+    --kawaii-blue: 200 60% 85%;
+    --kawaii-blue-light: 200 70% 92%;
+    --kawaii-beige: 35 35% 88%;
+    --kawaii-coral: 10 85% 70%;
+    --kawaii-yellow: 45 100% 85%;
 
     --sidebar-background: 0 0% 98%;
 

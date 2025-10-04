@@ -60,7 +60,7 @@ const Index = () => {
           disabled={currentPage === 0}
           variant="default"
           size="lg"
-          className="bg-primary hover:bg-romantic-red-dark disabled:opacity-50 disabled:cursor-not-allowed rounded-full shadow-lg"
+          className="bg-kawaii-pink-medium hover:bg-kawaii-pink-dark disabled:opacity-50 disabled:cursor-not-allowed rounded-full shadow-lg"
         >
           <ChevronLeft className="w-6 h-6" />
         </Button>
@@ -72,8 +72,8 @@ const Index = () => {
               onClick={() => setCurrentPage(index)}
               className={`w-3 h-3 rounded-full transition-all ${
                 index === currentPage
-                  ? "bg-primary w-8"
-                  : "bg-primary/30 hover:bg-primary/50"
+                  ? "bg-kawaii-pink-medium w-8"
+                  : "bg-kawaii-pink-medium/30 hover:bg-kawaii-pink-medium/50"
               }`}
               aria-label={`Go to page ${index + 1}`}
             />
@@ -85,7 +85,7 @@ const Index = () => {
           disabled={currentPage === pages.length - 1}
           variant="default"
           size="lg"
-          className="bg-primary hover:bg-romantic-red-dark disabled:opacity-50 disabled:cursor-not-allowed rounded-full shadow-lg"
+          className="bg-kawaii-pink-medium hover:bg-kawaii-pink-dark disabled:opacity-50 disabled:cursor-not-allowed rounded-full shadow-lg"
         >
           <ChevronRight className="w-6 h-6" />
         </Button>
