@@ -3,9 +3,9 @@ import pinkFlower from "@/assets/pink-flower.png";
 
 const PhotoPage = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-kawaii-pink p-4 overflow-hidden relative">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-300 via-blue-200 to-blue-100 p-4 overflow-hidden relative">
       {/* Flower pattern background */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-10">
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
@@ -27,16 +27,30 @@ const PhotoPage = () => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="bg-gradient-to-t from-kawaii-blue to-white rounded-3xl p-8 md:p-12 shadow-2xl border-8 border-kawaii-pink-medium/30 relative">
-          {/* Title */}
+        <div className="bg-gradient-to-t from-blue-50 to-white rounded-3xl p-8 md:p-12 shadow-2xl border-8 border-blue-200/40 relative">
+          {/* Title with modern emojis */}
           <motion.h2
-            className="font-hand text-2xl md:text-3xl text-center text-foreground mb-8 tracking-wider"
+            className="font-poppins font-semibold text-2xl md:text-3xl text-center text-blue-800 mb-2 tracking-wide"
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
             FOREVER TOGETHER
           </motion.h2>
+          
+          {/* Modern emoji decoration */}
+          <motion.div
+            className="text-center text-3xl mb-6 space-x-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            <span>💙</span>
+            <span>✨</span>
+            <span>🌸</span>
+            <span>✨</span>
+            <span>💙</span>
+          </motion.div>
 
           {/* Photo frame */}
           <motion.div
@@ -46,8 +60,8 @@ const PhotoPage = () => {
             transition={{ delay: 0.5 }}
           >
             {/* Circular photo frame */}
-            <div className="w-full h-full rounded-full border-8 border-white shadow-2xl overflow-hidden bg-gradient-to-br from-kawaii-blue-light to-white flex items-center justify-center">
-              <p className="font-cute text-kawaii-pink-dark text-center px-8">
+            <div className="w-full h-full rounded-full border-8 border-white shadow-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-white flex items-center justify-center">
+              <p className="font-poppins text-blue-400 text-center px-8">
                 Your beautiful photo here 💕
               </p>
             </div>
@@ -96,9 +110,9 @@ const PhotoPage = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.8 }}
           >
-            <div className="absolute -top-2 left-8 w-4 h-4 rounded-full bg-kawaii-coral border-2 border-white shadow-lg z-10" />
-            <div className="bg-kawaii-beige rounded-2xl p-6 shadow-lg transform rotate-1 border-4 border-kawaii-pink-medium/20">
-              <p className="font-script text-lg md:text-xl text-foreground/80 text-center">
+            <div className="absolute -top-2 left-8 w-4 h-4 rounded-full bg-blue-400 border-2 border-white shadow-lg z-10" />
+            <div className="bg-blue-50 rounded-2xl p-6 shadow-lg transform rotate-1 border-4 border-blue-100">
+              <p className="font-dmsans text-lg md:text-xl text-gray-700 text-center">
                 I am so grateful to be able to call you mine. You must be the luckiest man alive 🐻
               </p>
               <div className="flex justify-end mt-2">

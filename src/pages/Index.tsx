@@ -5,23 +5,13 @@ import Envelope from "@/components/Envelope";
 import CoverPage from "@/components/CoverPage";
 import PhotoPage from "@/components/PhotoPage";
 import LetterPage from "@/components/LetterPage";
+import VideoPage from "@/components/VideoPage";
 import ChallengePage from "@/components/ChallengePage";
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [envelopeOpened, setEnvelopeOpened] = useState(false);
-
-  const pages = [
-    <CoverPage key="cover" />,
-    <PhotoPage key="photo" />,
-    <LetterPage key="letter" />,
-    <ChallengePage key="challenge" />,
-  ];
-
-  const handleEnvelopeOpen = () => {
-    setEnvelopeOpened(true);
-  };
 
   const nextPage = () => {
     if (currentPage < pages.length - 1) {
@@ -34,6 +24,18 @@ const Index = () => {
       setCurrentPage(currentPage - 1);
     }
   };
+
+  const handleEnvelopeOpen = () => {
+    setEnvelopeOpened(true);
+  };
+
+  const pages = [
+    <CoverPage key="cover" onButtonClick={nextPage} />,
+    <PhotoPage key="photo" />,
+    <LetterPage key="letter" />,
+    <VideoPage key="video" />,
+    <ChallengePage key="challenge" />,
+  ];
 
   if (!envelopeOpened) {
     return <Envelope onOpen={handleEnvelopeOpen} />;

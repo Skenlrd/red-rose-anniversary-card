@@ -18,6 +18,9 @@ export default {
         'hand': ['Indie Flower', 'cursive'],
         'cute': ['Patrick Hand', 'cursive'],
         'script': ['Caveat', 'cursive'],
+        'poppins': ['Poppins', 'sans-serif'],
+        'playfair': ['Playfair Display', 'serif'],
+        'dmsans': ['DM Sans', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

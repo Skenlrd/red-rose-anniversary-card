@@ -44,8 +44,10 @@ const ChallengePage = () => {
                 className="w-64 md:w-80 h-auto mx-auto"
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <h2 className="font-kawaii text-xl md:text-2xl text-foreground text-center px-8">
-                  Guess the song challenge
+                <h2 className="font-kawaii text-xl md:text-2xl text-foreground text-center px-8 flex items-center justify-center gap-2 flex-wrap">
+                  <span>Guess the song</span>
+                  <span>🎵</span>
+                  <span>challenge</span>
                 </h2>
               </div>
             </motion.div>

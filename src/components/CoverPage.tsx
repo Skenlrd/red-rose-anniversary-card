@@ -2,7 +2,11 @@ import { motion } from "framer-motion";
 import { Heart, Star } from "lucide-react";
 import kawaiBears from "@/assets/kawaii-bears.png";
 
-const CoverPage = () => {
+interface CoverPageProps {
+  onButtonClick?: () => void;
+}
+
+const CoverPage = ({ onButtonClick }: CoverPageProps) => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-kawaii-pink p-4 overflow-hidden">
       {/* Main content card */}
@@ -67,16 +71,18 @@ const CoverPage = () => {
           </motion.div>
 
           {/* Content */}
-          <div className="text-center space-y-4 pt-8 z-10">
-            {/* Main Title Bubble */}
+          <div className="text-center space-y-4 pt-4 z-10">
+            {/* Main Title Bubble - Split into two lines */}
             <motion.div
               className="bg-kawaii-beige rounded-full px-8 py-4 inline-block shadow-lg border-2 border-kawaii-coral"
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
             >
-              <h1 className="font-kawaii text-4xl md:text-6xl text-kawaii-coral whitespace-nowrap">
-                Happy 5th Anniversary!
+              <h1 className="font-kawaii text-3xl md:text-5xl text-kawaii-coral">
+                Happy 5th
+                <br />
+                Anniversary!
               </h1>
             </motion.div>
 
@@ -90,9 +96,23 @@ const CoverPage = () => {
               My Love
             </motion.p>
 
-            {/* Left Sparkle (repurposed from stars) */}
+            {/* Image Section */}
             <motion.div
-              className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 z-10"
+              className="mt-4"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.6 }}
+            >
+              <div className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-2xl border-4 border-white shadow-lg overflow-hidden bg-kawaii-pink-light/30 flex items-center justify-center">
+                <p className="font-cute text-kawaii-pink-dark text-sm text-center px-4">
+                  Your photo here 💕
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Left Sparkle */}
+            <motion.div
+              className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 z-10"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.7 }}
@@ -119,19 +139,21 @@ const CoverPage = () => {
             </div>
           </motion.div>
 
-          {/* Bottom Right Cat Button */}
-          <motion.div
+          {/* Bottom Right Click Button - Functional */}
+          <motion.button
+            onClick={onButtonClick}
             className="absolute bottom-12 right-12 md:right-16 z-10"
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 1.0, type: "spring" }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <div className="relative bg-kawaii-coral rounded-full px-6 py-2 flex items-center justify-center space-x-2 shadow-lg cursor-pointer hover:scale-105 transition-transform">
+            <div className="relative bg-kawaii-coral rounded-full px-6 py-2 flex items-center justify-center space-x-2 shadow-lg cursor-pointer transition-transform">
               <span className="font-cute text-white text-lg">Click</span>
-              {/* Placeholder for a cat icon or image */}
               <span role="img" aria-label="cat" className="text-xl">🐱</span>
             </div>
-          </motion.div>
+          </motion.button>
         </div>
       </motion.div>
     </div>
