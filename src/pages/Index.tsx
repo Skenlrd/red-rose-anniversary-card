@@ -13,8 +13,12 @@ const Index = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [envelopeOpened, setEnvelopeOpened] = useState(false);
 
+  const handleEnvelopeOpen = () => {
+    setEnvelopeOpened(true);
+  };
+
   const nextPage = () => {
-    if (currentPage < pages.length - 1) {
+    if (currentPage < 4) {
       setCurrentPage(currentPage + 1);
     }
   };
@@ -23,10 +27,6 @@ const Index = () => {
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1);
     }
-  };
-
-  const handleEnvelopeOpen = () => {
-    setEnvelopeOpened(true);
   };
 
   const pages = [
