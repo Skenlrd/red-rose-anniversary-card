@@ -32,24 +32,28 @@ const ChallengePage = () => {
         <div className="bg-white rounded-3xl shadow-2xl border-8 border-kawaii-pink-medium/30 overflow-hidden relative">
           {/* Top white section */}
           <div className="bg-white p-8 md:p-12 relative">
-            <motion.div
-              className="relative inline-block mx-auto"
-              initial={{ y: -50, opacity: 0 }}
+            <motion.h2
+              className="font-kawaii text-2xl md:text-3xl text-foreground text-center mb-6 flex items-center justify-center gap-2 flex-wrap"
+              initial={{ y: -30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3, type: "spring" }}
+              transition={{ delay: 0.2, type: "spring" }}
+            >
+              <span>Guess the song</span>
+              <span>🎵</span>
+              <span>challenge</span>
+            </motion.h2>
+
+            <motion.div
+              className="relative inline-block mx-auto mb-8"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.4, type: "spring" }}
             >
               <img
                 src={kawaiCloud}
                 alt="Cloud"
-                className="w-64 md:w-80 h-auto mx-auto"
+                className="w-48 md:w-64 h-auto mx-auto"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <h2 className="font-kawaii text-xl md:text-2xl text-foreground text-center px-8 flex items-center justify-center gap-2 flex-wrap">
-                  <span>Guess the song</span>
-                  <span>🎵</span>
-                  <span>challenge</span>
-                </h2>
-              </div>
             </motion.div>
 
             <motion.div
