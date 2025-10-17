@@ -105,7 +105,7 @@ const CoverPage = ({ onButtonClick }: CoverPageProps) => {
             >
               <div className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-2xl border-4 border-white shadow-lg overflow-hidden bg-kawaii-pink-light/30 flex items-center justify-center">
                 <p className="font-cute text-kawaii-pink-dark text-sm text-center px-4">
-                  Your photo here 💕
+                 <img src="src/assets/IMG_4443.jpg" alt="A beautiful photo" className="w-full h-full object-cover" />
                 </p>
               </div>
             </motion.div>

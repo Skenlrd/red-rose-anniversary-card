@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import pinkFlower from "@/assets/pink-flower.png";
+// This now correctly imports your babe.mp4 file
+import ourVideo from "@/assets/babe.mp4"; 
 
 const VideoPage = () => {
   return (
@@ -35,7 +37,7 @@ const VideoPage = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            Our Special Moments 🎬
+            FOR MY LOVE 🎬
           </motion.h2>
 
           {/* VHS-style video container */}
@@ -66,18 +68,14 @@ const VideoPage = () => {
                   }}
                 />
 
-                {/* Video placeholder */}
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black">
-                  <div className="text-center space-y-4 px-6">
-                    <div className="text-6xl mb-4 animate-pulse">📹</div>
-                    <p className="font-cute text-white text-lg tracking-wide">
-                      Your special video here
-                    </p>
-                    <p className="font-script text-gray-400 text-sm">
-                      Vintage memories 💕
-                    </p>
-                  </div>
-                </div>
+                {/* This uses your babe.mp4 video */}
+                <video 
+                  src={ourVideo} 
+                  controls 
+                  className="w-full h-full object-cover"
+                >
+                  Your browser does not support the video tag.
+                </video>
 
                 {/* VHS timestamp overlay */}
                 <div className="absolute top-2 left-2 z-20 font-mono text-red-500 text-sm bg-black/50 px-2 py-1 rounded">
@@ -116,7 +114,7 @@ const VideoPage = () => {
             <div className="absolute -top-2 left-8 w-4 h-4 rounded-full bg-kawaii-coral border-2 border-white shadow-lg z-10" />
             <div className="bg-kawaii-beige rounded-2xl p-6 shadow-lg transform -rotate-1 border-4 border-kawaii-pink-medium/20">
               <p className="font-script text-lg md:text-xl text-foreground/80 text-center">
-                Relive our most precious memories together 🎞️✨
+                 Memories together 🎞️✨
               </p>
               <div className="flex justify-end mt-2">
                 <img src={pinkFlower} alt="" className="w-6 h-6" />

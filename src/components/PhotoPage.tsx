@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import pinkFlower from "@/assets/pink-flower.png";
+// This now correctly imports your win.png file
+import myImage from "@/assets/win.png"; 
 
 const PhotoPage = () => {
   return (
@@ -37,7 +39,7 @@ const PhotoPage = () => {
           >
             FOREVER TOGETHER
           </motion.h2>
-          
+
           {/* Modern emoji decoration */}
           <motion.div
             className="text-center text-3xl mb-6 space-x-2"
@@ -61,9 +63,12 @@ const PhotoPage = () => {
           >
             {/* Circular photo frame */}
             <div className="w-full h-full rounded-full border-8 border-white shadow-2xl overflow-hidden bg-gradient-to-br from-blue-100 to-white flex items-center justify-center">
-              <p className="font-poppins text-blue-400 text-center px-8">
-                Your beautiful photo here 💕
-              </p>
+              {/* This now correctly uses your win.png file */}
+              <img
+                src={myImage}
+                alt="A beautiful photo"
+                className="w-full h-full object-cover"
+              />
             </div>
 
             {/* Confetti and streamers */}
@@ -113,7 +118,8 @@ const PhotoPage = () => {
             <div className="absolute -top-2 left-8 w-4 h-4 rounded-full bg-blue-400 border-2 border-white shadow-lg z-10" />
             <div className="bg-blue-50 rounded-2xl p-6 shadow-lg transform rotate-1 border-4 border-blue-100">
               <p className="font-dmsans text-lg md:text-xl text-gray-700 text-center">
-                I am so grateful to be able to call you mine. You must be the luckiest man alive 🐻
+                I am so grateful to be able to call you mine. I must be the
+                luckiest man alive 🐻
               </p>
               <div className="flex justify-end mt-2">
                 <img src={pinkFlower} alt="" className="w-6 h-6" />

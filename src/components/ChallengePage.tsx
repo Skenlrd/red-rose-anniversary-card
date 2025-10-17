@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import kawaiWhale from "@/assets/kawaii-whale.png";
 import kawaiCloud from "@/assets/kawaii-cloud.png";
 import pinkFlower from "@/assets/pink-flower.png";
+import qrCodeImage from "@/assets/Q.png";
 
 const ChallengePage = () => {
   return (
@@ -80,14 +81,13 @@ const ChallengePage = () => {
                   />
                 </svg>
 
-                <div className="w-48 h-48 bg-white border-4 border-kawaii-pink-medium rounded-2xl flex items-center justify-center shadow-lg">
-                  <div className="text-center p-4">
-                    <div className="w-32 h-32 bg-gradient-to-br from-kawaii-blue-light to-kawaii-pink border-4 border-dashed border-kawaii-pink-medium/40 rounded-lg flex items-center justify-center mb-2">
-                      <p className="font-cute text-xs text-foreground/60">
-                        QR Code
-                      </p>
-                    </div>
-                  </div>
+                <div className="w-48 h-48 bg-white border-4 border-kawaii-pink-medium rounded-2xl flex items-center justify-center shadow-lg p-4">
+                  {/* CORRECTED QR CODE SECTION */}
+                  <img
+                    src={qrCodeImage}
+                    alt="QR Code for song challenge"
+                    className="w-full h-full rounded-lg object-contain"
+                  />
                 </div>
               </div>
 
@@ -132,7 +132,7 @@ const ChallengePage = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.9 }}
             >
-              "Will you be mine?"
+              "WILL YOU MARRY ME ????"
             </motion.p>
           </div>
 

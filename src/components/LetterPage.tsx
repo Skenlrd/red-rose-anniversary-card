@@ -65,7 +65,7 @@ const LetterPage = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            My letter to you
+            Letter to my LOVE
           </motion.h2>
 
           {/* Letter content */}
@@ -76,19 +76,23 @@ const LetterPage = () => {
             transition={{ delay: 0.5 }}
           >
             <p>
-              To my little princess,
+              To my future wifey,
             </p>
 
             <p>
-              You have a heart too good for this world but that's okay because I promise to forever protect your little heart. I just wish you could see how beautiful and inspiring you are to everyone who sees you! I think you are an amazing, beautiful, smart soul. As I look ahead to the future, I want to spend the rest of my life with you. We are so proud to speak up for those who are afraid to.
+              You have always been my greatest strength, my biggest support, and, of course, my biggest headache! 😂 Experiencing life and growing together is everything I could ever want. From our lockdown dates to the immense pride I felt seeing you in your doctor's coat, it has been an amazing journey.
             </p>
 
             <p>
-              My precious girl, watching you write has never once failed to make the same excuse you make about moving - we aren't going anywhere until my music. As a little boy I always imagined I would marry a small, delicate girl with a family with our silly day-to-day nonsense! I can't express how proud I am of you and how you have grown in everything we shared. Together though the thought of you my sweet baby. I am so proud of you and how you have done. As we continue to build our life together as we live the rest of our lives together.
+              I always say my predictions come true, and I know you'll be one of the best doctors in Sikkim. My other prediction? Us getting married next year. 💍
+            </p>
+
+            <p>
+              You are the most beautiful, hot, seeeeeeeexyyyyyy ❤️, and most importantly, the most caring and kind human being I have ever met.
             </p>
 
             <p className="text-right font-script text-2xl text-kawaii-pink-dark mt-8">
-              I heart you Always & Forever
+              Forever love you
             </p>
           </motion.div>
         </div>
