@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Heart, Star } from "lucide-react";
 import kawaiBears from "@/assets/kawaii-bears.png";
+// 1. IMPORT YOUR IMAGE HERE
+import myImage from "@/assets/IMG_4443.jpg";
 
 interface CoverPageProps {
   onButtonClick?: () => void;
@@ -104,9 +106,8 @@ const CoverPage = ({ onButtonClick }: CoverPageProps) => {
               transition={{ delay: 0.6 }}
             >
               <div className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-2xl border-4 border-white shadow-lg overflow-hidden bg-kawaii-pink-light/30 flex items-center justify-center">
-                <p className="font-cute text-kawaii-pink-dark text-sm text-center px-4">
-                 <img src="src/assets/IMG_4443.jpg" alt="A beautiful photo" className="w-full h-full object-cover" />
-                </p>
+                {/* 2. USE THE CORRECTED IMAGE TAG HERE */}
+                <img src={myImage} alt="A beautiful photo" className="w-full h-full object-cover" />
               </div>
             </motion.div>
 
@@ -134,7 +135,6 @@ const CoverPage = ({ onButtonClick }: CoverPageProps) => {
                 alt="Two cute bears"
                 className="w-28 h-28 md:w-36 md:h-36 object-contain"
               />
-              {/* This div could act as a placeholder for the pink border or a transparent overlay if you update the image */}
               <div className="absolute inset-0 rounded-2xl border-2 border-transparent pointer-events-none"></div>
             </div>
           </motion.div>
