@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Heart, Star } from "lucide-react";
 import kawaiBears from "@/assets/kawaii-bears.png";
 // 1. IMPORT YOUR IMAGE HERE
-import myImage from "@/assets/IMG_4443.jpg";
+import myImage from "@/assets/img2.png";
 
 interface CoverPageProps {
   onButtonClick?: () => void;
